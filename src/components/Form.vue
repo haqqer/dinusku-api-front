@@ -16,16 +16,16 @@
                 </v-flex>
             </v-layout>
             <v-layout row wrap mb-5 mt-5 v-if="data_jadwal.length > 1 && cari.length==0">
-                <v-flex xs12 md4 lg4 v-for="jadwal in data_jadwal" v-bind:key="jadwal.id">
+                <v-flex xs6 md4 lg3 v-for="jadwal in data_jadwal" v-bind:key="jadwal.id">
                     <v-card>
                         <v-card-title primary-title>
                             <div>
-                                <h3 headline>{{ jadwal.kelompok }}</h3>
+                                <h3 headline >{{ jadwal.kelompok }}</h3>
                                 <div>{{ jadwal.makul }}</div>
                                 <div>{{ jadwal.ruang[0] }}</div>
                             </div>
                         </v-card-title>
-                        <v-card-actions>
+                        <v-card-actions> 
                             <v-btn :href=jadwal.link target="__blank">DETAIL</v-btn>
                         </v-card-actions>
                     </v-card>
@@ -133,14 +133,11 @@
                 })
             }
         },
-        mounted() {
-            this.fetchJadwal();
-        }, 
         methods: {
             fetchJadwal() {
                 let hari = this.reqJadwal.hari
                 let sesi = this.reqJadwal.sesi
-                let page_url = `https://dinus-api.herokuapp.com/${hari}/${sesi}` 
+                let page_url = `https://dinus-api.herokuapp.com/jadwal/${hari}/${sesi}` 
                 fetch(page_url)
                     .then(res => res.json())
                     .then(res => {

@@ -2,7 +2,9 @@
   <v-app>
     <v-content>
       <app-navbar></app-navbar>
-      <router-view></router-view>
+      <div style="min-height:100vh; height:auto">
+        <router-view></router-view>
+      </div>
       <app-footer></app-footer>
     </v-content>
   </v-app>
