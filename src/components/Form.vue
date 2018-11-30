@@ -11,7 +11,7 @@
                 </v-flex>
                 <v-flex xs12>
                     <v-form >
-                        <v-text-field v-model="cari" label="Cari makul atau kelompok"></v-text-field>
+                        <v-text-field v-model="cari" label="Cari makul atau kelompok atau ruangan"></v-text-field>
                     </v-form>                    
                 </v-flex>
             </v-layout>
@@ -124,10 +124,10 @@
         computed: {
             filterSchedules() {
                 return this.data_jadwal.filter(data_temp => {
-                    if(this.cari.indexOf('.') !== -1) {
+                    if (this.cari.indexOf('.') == 1) {
+                        return data_temp.ruang[0].toLowerCase().indexOf(this.cari.toLowerCase())> -1
+                    } else if(this.cari.indexOf('.') !== -1) {
                         return data_temp.kelompok.toLowerCase().indexOf(this.cari.toLowerCase())> -1
-                    } else if (this.cari.indexOf('.') == 1) {
-                        return data_temp.ruang.toLowerCase().indexOf(this.cari.toLowerCase())> -1
                     } else {
                         return data_temp.makul.toLowerCase().indexOf(this.cari.toLowerCase())> -1
                     }
