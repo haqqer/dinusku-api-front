@@ -139,7 +139,7 @@
             fetchJadwal() {
                 let hari = this.reqJadwal.hari
                 let sesi = this.reqJadwal.sesi
-                let page_url = `https://dinus-api.herokuapp.com/jadwal/${hari}/${sesi}` 
+                let page_url = `http://35.198.253.82/jadwal/${hari}/${sesi}` 
                 fetch(page_url)
                     .then(res => res.json())
                     .then(res => {
